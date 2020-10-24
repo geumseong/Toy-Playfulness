@@ -2,17 +2,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class MiniGame : MonoBehaviour
 {
     public bool changeScene;
     public int sceneIndex;
     
-    public bool changesSprite;
-    public Sprite changeToSprite;
-
-    public bool callsMethod;
-    public int methodValue;
+    public bool runsUnityEvent;
+    public UnityEvent runUnityEvent;
     
     public void Run()
     {
@@ -20,28 +18,14 @@ public class MiniGame : MonoBehaviour
         {
             SceneLoader.Instance.LoadScene(sceneIndex);
         }
-        else if (changesSprite)
+        else if (runsUnityEvent)
         {
-            CarController.Instance.ChangeSprite(changeToSprite);
-        }
-        else if (callsMethod)
-        {
-            GenericMethod(methodValue);
+            RunEvent();
         }
     }
 
-    public void GenericMethod(int methodValue)
+    public void RunEvent()
     {
-        switch (methodValue)
-        {
-            case 1:
-                break;
-            case 2:
-                break;
-            case 3:
-                break;
-            default:
-                break;
-        }
+        runUnityEvent.Invoke();
     }
 }

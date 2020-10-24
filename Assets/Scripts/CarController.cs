@@ -12,6 +12,7 @@ public class CarController : MonoBehaviour
     public bool isInInteractableRange;
     public MiniGame currentMinigame;
 
+    SpriteRenderer spriteRenderer;
     [SerializeField] float accelerationPower = 5f;
     [SerializeField] float steeringPower = 5f;
     float steeringAmount;
@@ -23,6 +24,7 @@ public class CarController : MonoBehaviour
     void Start()
     {
         _instance = this;
+        spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
         rb = gameObject.GetComponent<Rigidbody2D>();
     }
 
@@ -55,8 +57,8 @@ public class CarController : MonoBehaviour
         this.currentMinigame = currentMinigame;
     }
 
-    public void ChangeSprite(Sprite sprite)
+    public void SetSprite(Sprite sprite)
     {
-        GetComponent<SpriteRenderer>().sprite = sprite;
+        spriteRenderer.sprite = sprite;
     }
 }
