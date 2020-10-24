@@ -4,6 +4,14 @@ using UnityEngine;
 
 public class CarController : MonoBehaviour
 {
+    private static CarController _instance;
+    public static CarController Instance
+    {
+        get { return _instance; }
+    }
+    public bool isInInteractableRange;
+    public MiniGame currentMinigame;
+
     [SerializeField] float accelerationPower = 5f;
     [SerializeField] float steeringPower = 5f;
     float steeringAmount;
@@ -14,7 +22,19 @@ public class CarController : MonoBehaviour
 
     void Start()
     {
+        _instance = this;
         rb = gameObject.GetComponent<Rigidbody2D>();
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.E) && isInInteractableRange)
+        {
+            if (currentMinigame != null)
+            {
+                currentMinigame.Run();
+            }
+        }
     }
 
     private void FixedUpdate()
@@ -27,5 +47,16 @@ public class CarController : MonoBehaviour
         rb.AddRelativeForce(Vector2.up * moveSpeed);
 
         rb.AddRelativeForce(-Vector2.right * rb.velocity.magnitude * steeringAmount / 2);
+    }
+
+    public void SetOnTrigger(bool isInInteractableRange, MiniGame currentMinigame)
+    {
+        this.isInInteractableRange = isInInteractableRange;
+        this.currentMinigame = currentMinigame;
+    }
+
+    public void ChangeSprite(Sprite sprite)
+    {
+        GetComponent<SpriteRenderer>().sprite = sprite;
     }
 }
