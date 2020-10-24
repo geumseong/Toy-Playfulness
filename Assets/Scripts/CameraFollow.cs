@@ -8,6 +8,10 @@ public class CameraFollow : MonoBehaviour
     public Vector3 offset;
     public float lerpSpeed;
 
+    private void Start()
+    {
+        transform.position = target.position;
+    }
 
     private void FixedUpdate()
     {
