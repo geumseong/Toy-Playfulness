@@ -7,6 +7,7 @@ public class Arrow : MonoBehaviour
 
     Rigidbody2D rb;
     public ParticleSystem ps;
+    public GameObject target;
 
     // Start is called before the first frame update
     void Start()
@@ -27,6 +28,11 @@ public class Arrow : MonoBehaviour
             ParticleSystem e = Instantiate(ps);
             e.transform.position = new Vector2(transform.position.x, transform.position.y);
             e.Play();
+
+            Vector2 newTargetPos = new Vector2(collision.gameObject.transform.position.x, Random.Range(1.0f, 0.015f));
+            GameObject newTarget = Instantiate(target);
+            newTarget.transform.position = newTargetPos;
+            Destroy(collision.gameObject);
             Destroy(gameObject);
         }
         if(collision.gameObject.tag == "wall") {
