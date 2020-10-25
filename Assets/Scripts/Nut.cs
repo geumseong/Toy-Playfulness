@@ -9,7 +9,7 @@ public class Nut : MonoBehaviour
     private NutsManager nutsManager;
     private SpriteRenderer spriteRenderer;
     private Color standardColor;
-    private bool isRotating;
+    [HideInInspector] public bool isRotating;
 
     private void Start()
     {

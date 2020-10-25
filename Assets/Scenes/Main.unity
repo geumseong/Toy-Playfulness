@@ -246,6 +246,124 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 389906638}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &429214662
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 429214666}
+  - component: {fileID: 429214665}
+  - component: {fileID: 429214664}
+  - component: {fileID: 429214663}
+  - component: {fileID: 429214667}
+  m_Layer: 0
+  m_Name: ArriveAtAirportTrigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &429214663
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 429214662}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ef49cf8cddef99418bc2a0064421347, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  carSprite: {fileID: -7921649188387484213, guid: a425bab39780e3b4891eaaf4d8f376b3,
+    type: 3}
+  planeSprite: {fileID: 21300000, guid: 6de73061cda98324da8e9e4c9224256f, type: 3}
+  colliders: []
+  airportTrigger: {fileID: 1886301434}
+--- !u!114 &429214664
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 429214662}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1ba71f49bb60ba41b135ac694c4a322, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  changeScene: 0
+  sceneIndex: 0
+  runsUnityEvent: 1
+  runUnityEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 429214663}
+        m_MethodName: ArriveAtAirport
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!61 &429214665
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 429214662}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.012472153, y: 1.2468796}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 7.2611275, y: 4.591015}
+  m_EdgeRadius: 0
+--- !u!4 &429214666
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 429214662}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.49, y: -5.63, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1975348966}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &429214667
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 429214662}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6a4f9bc9146b6e45a0b78436a827ba0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -389,6 +507,174 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &953651850
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2871440837466210636, guid: 3dda25b3e1c20b544844eadf64ce9ddb,
+        type: 3}
+      propertyPath: runUnityEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2871440837466210636, guid: 3dda25b3e1c20b544844eadf64ce9ddb,
+        type: 3}
+      propertyPath: changeScene
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2871440837466210636, guid: 3dda25b3e1c20b544844eadf64ce9ddb,
+        type: 3}
+      propertyPath: sceneIndex
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2871440837466210636, guid: 3dda25b3e1c20b544844eadf64ce9ddb,
+        type: 3}
+      propertyPath: changesSprite
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2871440837466210636, guid: 3dda25b3e1c20b544844eadf64ce9ddb,
+        type: 3}
+      propertyPath: runUnityEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2871440837466210636, guid: 3dda25b3e1c20b544844eadf64ce9ddb,
+        type: 3}
+      propertyPath: runUnityEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2871440837466210636, guid: 3dda25b3e1c20b544844eadf64ce9ddb,
+        type: 3}
+      propertyPath: runUnityEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 953651853}
+    - target: {fileID: 2871440837466210636, guid: 3dda25b3e1c20b544844eadf64ce9ddb,
+        type: 3}
+      propertyPath: runUnityEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ChangeSprite
+      objectReference: {fileID: 0}
+    - target: {fileID: 2871440837466210636, guid: 3dda25b3e1c20b544844eadf64ce9ddb,
+        type: 3}
+      propertyPath: runUnityEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 2871440837466210636, guid: 3dda25b3e1c20b544844eadf64ce9ddb,
+        type: 3}
+      propertyPath: runsUnityEvent
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7087558305619437768, guid: 3dda25b3e1c20b544844eadf64ce9ddb,
+        type: 3}
+      propertyPath: m_Name
+      value: InteractableBuilding (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7087558305619437769, guid: 3dda25b3e1c20b544844eadf64ce9ddb,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: -3.289003
+      objectReference: {fileID: 0}
+    - target: {fileID: 7087558305619437769, guid: 3dda25b3e1c20b544844eadf64ce9ddb,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 8.853922
+      objectReference: {fileID: 0}
+    - target: {fileID: 7087558305619437769, guid: 3dda25b3e1c20b544844eadf64ce9ddb,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: 1.4383376
+      objectReference: {fileID: 0}
+    - target: {fileID: 7087558305619437769, guid: 3dda25b3e1c20b544844eadf64ce9ddb,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 7.6406283
+      objectReference: {fileID: 0}
+    - target: {fileID: 7087558305619437770, guid: 3dda25b3e1c20b544844eadf64ce9ddb,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -26.18
+      objectReference: {fileID: 0}
+    - target: {fileID: 7087558305619437770, guid: 3dda25b3e1c20b544844eadf64ce9ddb,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 15.59
+      objectReference: {fileID: 0}
+    - target: {fileID: 7087558305619437770, guid: 3dda25b3e1c20b544844eadf64ce9ddb,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7087558305619437770, guid: 3dda25b3e1c20b544844eadf64ce9ddb,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7087558305619437770, guid: 3dda25b3e1c20b544844eadf64ce9ddb,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7087558305619437770, guid: 3dda25b3e1c20b544844eadf64ce9ddb,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7087558305619437770, guid: 3dda25b3e1c20b544844eadf64ce9ddb,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7087558305619437770, guid: 3dda25b3e1c20b544844eadf64ce9ddb,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 7087558305619437770, guid: 3dda25b3e1c20b544844eadf64ce9ddb,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7087558305619437770, guid: 3dda25b3e1c20b544844eadf64ce9ddb,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7087558305619437770, guid: 3dda25b3e1c20b544844eadf64ce9ddb,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 3dda25b3e1c20b544844eadf64ce9ddb, type: 3}
+--- !u!1 &953651851 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7087558305619437768, guid: 3dda25b3e1c20b544844eadf64ce9ddb,
+    type: 3}
+  m_PrefabInstance: {fileID: 953651850}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &953651852 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7087558305619437770, guid: 3dda25b3e1c20b544844eadf64ce9ddb,
+    type: 3}
+  m_PrefabInstance: {fileID: 953651850}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &953651853
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 953651851}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ef49cf8cddef99418bc2a0064421347, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  carSprite: {fileID: -7921649188387484213, guid: a425bab39780e3b4891eaaf4d8f376b3,
+    type: 3}
+  planeSprite: {fileID: 21300000, guid: 6de73061cda98324da8e9e4c9224256f, type: 3}
+  colliders: []
+  airportTrigger: {fileID: 429214665}
 --- !u!1 &1127796548
 GameObject:
   m_ObjectHideFlags: 0
@@ -719,7 +1005,7 @@ Rigidbody2D:
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 5
-  m_AngularDrag: 0.05
+  m_AngularDrag: 2
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
@@ -742,6 +1028,124 @@ MonoBehaviour:
   currentMinigame: {fileID: 0}
   accelerationPower: 50
   steeringPower: 0.5
+--- !u!1 &1886301433
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1886301437}
+  - component: {fileID: 1886301434}
+  - component: {fileID: 1886301436}
+  - component: {fileID: 1886301435}
+  - component: {fileID: 1886301438}
+  m_Layer: 0
+  m_Name: ArriveAtAirportTrigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!61 &1886301434
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1886301433}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.012472153, y: 1.2468796}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 7.2611275, y: 4.591015}
+  m_EdgeRadius: 0
+--- !u!114 &1886301435
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1886301433}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ef49cf8cddef99418bc2a0064421347, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  carSprite: {fileID: -7921649188387484213, guid: a425bab39780e3b4891eaaf4d8f376b3,
+    type: 3}
+  planeSprite: {fileID: 21300000, guid: 6de73061cda98324da8e9e4c9224256f, type: 3}
+  colliders: []
+  airportTrigger: {fileID: 429214665}
+--- !u!114 &1886301436
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1886301433}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1ba71f49bb60ba41b135ac694c4a322, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  changeScene: 0
+  sceneIndex: 0
+  runsUnityEvent: 1
+  runUnityEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1886301435}
+        m_MethodName: ArriveAtAirport
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!4 &1886301437
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1886301433}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.49, y: -3.2, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 953651852}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1886301438
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1886301433}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6a4f9bc9146b6e45a0b78436a827ba0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1957245412
 GameObject:
   m_ObjectHideFlags: 0
@@ -758,7 +1162,7 @@ GameObject:
   - component: {fileID: 1957245415}
   m_Layer: 0
   m_Name: roads_upscaled
-  m_TagString: Untagged
+  m_TagString: Map
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -950,7 +1354,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ef49cf8cddef99418bc2a0064421347, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  carSprite: {fileID: -7921649188387484213, guid: a425bab39780e3b4891eaaf4d8f376b3,
+    type: 3}
   planeSprite: {fileID: 21300000, guid: 6de73061cda98324da8e9e4c9224256f, type: 3}
+  colliders: []
+  airportTrigger: {fileID: 1886301434}
+--- !u!4 &1975348966 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7087558305619437770, guid: 3dda25b3e1c20b544844eadf64ce9ddb,
+    type: 3}
+  m_PrefabInstance: {fileID: 1252304719}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1988150922
 PrefabInstance:
   m_ObjectHideFlags: 0

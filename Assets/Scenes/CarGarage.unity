@@ -211,6 +211,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 589730235}
+  - component: {fileID: 589730236}
+  - component: {fileID: 589730237}
   m_Layer: 0
   m_Name: DeezNuts
   m_TagString: Untagged
@@ -226,7 +228,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 589730234}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.331, y: -1.868, z: -4.243645}
+  m_LocalPosition: {x: 11.68, y: -1.868, z: -4.243645}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 413645305}
@@ -238,6 +240,40 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &589730236
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 589730234}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc3373506ed9c21479aec146489ee75f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nuts: []
+  start: {x: 12.45, y: -1.868}
+  target: {x: 2.5, y: -1.868}
+--- !u!95 &589730237
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 589730234}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 29e5a761f7a470242bab861de59a4cc0, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &691455130
 GameObject:
   m_ObjectHideFlags: 0
@@ -693,6 +729,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1668701068968213813, guid: 4e676b66dea356c4d8555b11200e68c6,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: e617179bf3d1eab4e84c2b5b138ac919,
+        type: 3}
     - target: {fileID: 1668701068968213816, guid: 4e676b66dea356c4d8555b11200e68c6,
         type: 3}
       propertyPath: m_Name
