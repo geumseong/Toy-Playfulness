@@ -11,7 +11,7 @@ public class Bow : MonoBehaviour
     Vector2 direction;
 
     public Image powerBarMask;
-    public GameObject powerBarObj;
+    public GameObject powerBarCanvas;
     public float powerChangeSpeed = 1f;
     bool updatingPower;
     bool increasingPower;
@@ -37,7 +37,7 @@ public class Bow : MonoBehaviour
             Debug.Log("Button Down");
             if(updatingPower == false) {
                 updatingPower = true;
-                powerBarObj.SetActive(true);
+                powerBarCanvas.SetActive(true);
                 StartCoroutine(UpdatePowerBar());
                 Debug.Log("staredCoroutine");
             }
@@ -88,7 +88,7 @@ public class Bow : MonoBehaviour
     IEnumerator TurnOffPowerBar()
     {
         yield return new WaitForSeconds(0.01f);
-        powerBarObj.SetActive(false);
+        powerBarCanvas.SetActive(false);
     }
 
     public void LaunchArrow(float force){
