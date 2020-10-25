@@ -5,10 +5,11 @@ using UnityEngine;
 public class Nut : MonoBehaviour
 {
     public Color tint;
+    [HideInInspector] public bool isNewTire;
 
     private NutsManager nutsManager;
     private SpriteRenderer spriteRenderer;
-    private Color standardColor;
+    public Color standardColor;
     [HideInInspector] public bool isRotating;
 
     private void Start()
@@ -22,33 +23,48 @@ public class Nut : MonoBehaviour
     private void OnMouseDown()
     {
         if (!isRotating)
-            StartCoroutine(RotateOut());
+            StartCoroutine(Rotate());
     }
 
     private void OnMouseOver()
     {
         if (!isRotating)
-            spriteRenderer.color = tint;
+            SetSpriteColor(tint);
     }
 
     private void OnMouseExit()
     {
-        if (!isRotating)
-            spriteRenderer.color = standardColor;
+        SetSpriteColor(standardColor);
     }
 
-    private IEnumerator RotateOut()
+    public void SetSpriteColor(Color color)
+    {
+        spriteRenderer.color = color;
+    }
+
+    private IEnumerator Rotate()
     {
         isRotating = true;
+        SetSpriteColor(standardColor);
         for (int i = 0; i < 144; i++)
         {
-            transform.rotation = Quaternion.Euler(0, 0, transform.rotation.eulerAngles.z + 5);
+            if (isNewTire)
+                transform.rotation = Quaternion.Euler(0, 0, transform.rotation.eulerAngles.z - 5);
+            else
+                transform.rotation = Quaternion.Euler(0, 0, transform.rotation.eulerAngles.z + 5);
             yield return null;
         }
 
-
-        nutsManager.nuts.Remove(this);
-        nutsManager.NutCheck();
-        Destroy(gameObject);
+        if (isNewTire)
+        {
+            nutsManager.nuts.Add(this);
+            nutsManager.NutCheck();
+        }
+        else
+        {
+            nutsManager.nuts.Remove(this);
+            nutsManager.NutCheck();
+            Destroy(gameObject);
+        }
     }
 }
