@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Building
   - Map
+  - Prisoner
   layers:
   - Default
   - TransparentFX
