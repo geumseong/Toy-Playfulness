@@ -9,7 +9,7 @@ public class Fuel : MonoBehaviour
     public Animator carAnimator;
     public Image tank;
     public Color tint;
-    public float fillValue = 0.005f;
+    private float fillValue = 0.005f;
 
     public bool wasFull;
     public bool wasMoved;
@@ -17,6 +17,7 @@ public class Fuel : MonoBehaviour
     private void Start()
     {
         tank.fillAmount = 0;
+        Application.targetFrameRate = 60;
     }
 
     private void OnMouseOver()
