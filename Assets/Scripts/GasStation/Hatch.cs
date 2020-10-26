@@ -8,7 +8,12 @@ public class Hatch : MonoBehaviour
     public GameObject openHatch;
     public GameObject closeHatch;
 
-    private bool hatchOpen;
+    public bool hatchOpen;
+
+    private void Start()
+    {
+        ChangeHatch(hatchOpen);
+    }
 
     private void OnMouseOver()
     {
@@ -23,13 +28,14 @@ public class Hatch : MonoBehaviour
     private void OnMouseDown()
     {
         ChangeHatch(hatchOpen);
-        hatchOpen = !hatchOpen;
     }
 
     private void ChangeHatch(bool state)
     {
         openHatch.SetActive(state);
         closeHatch.SetActive(!state);
+        FindObjectOfType<GasStationManager>().HatchClosed = !hatchOpen;
+        hatchOpen = !hatchOpen;
     }
 
     private void SetSpriteColor(Color color)

@@ -33,8 +33,15 @@ public class Fuel : MonoBehaviour
     {
         if (tank.fillAmount == 1 && !wasMoved)
         {
-            tankAnimator.SetTrigger("FullFuel");
-            wasMoved = true;
+            if (!FindObjectOfType<Hatch>().hatchOpen)
+            {
+                tankAnimator.SetTrigger("FullFuel");
+                wasMoved = true;
+            }
+            else
+            {
+                Debug.Log("Nahh");
+            }
         }
         else
         {
@@ -68,8 +75,7 @@ public class Fuel : MonoBehaviour
             if (tank.fillAmount == 0)
             {
                 tankAnimator.SetTrigger("EmptyFuel");
-                yield return new WaitForSeconds(1f);
-                carAnimator.SetTrigger("DriveOff");
+                FindObjectOfType<GasStationManager>().carFueled = true;
             }
         }
     }

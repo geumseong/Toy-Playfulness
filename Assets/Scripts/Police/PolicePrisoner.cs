@@ -11,6 +11,6 @@ public class PolicePrisoner : MonoBehaviour
 
     private void OnMouseDown()
     {
-        SceneLoader.Instance.LoadScene(2);
+        FindObjectOfType<MiniGameWon>().Win();
     }
 }
