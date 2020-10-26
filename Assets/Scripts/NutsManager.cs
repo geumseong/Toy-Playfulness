@@ -6,20 +6,17 @@ public class NutsManager : MonoBehaviour
 {
     public GameObject tirePrefab;
     public GameObject nutPrefab;
+    public GameObject car;
     public Transform[] spawnPositions;
     public bool isNewTire;
     public List<Nut> nuts;
-
     public SpriteRenderer tireSpriteRenderer;
     public Sprite[] tires;
-
-    private GameObject car;
-
     public Animator tireAnimator;
 
     private void Start()
     {
-        car = GameObject.Find("Car");
+        car = GameObject.Find("CarGarage");
         for (int i = 0; i < spawnPositions.Length; i++)
         {
             Instantiate(nutPrefab, spawnPositions[i].position, Quaternion.identity, spawnPositions[i]);

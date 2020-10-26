@@ -46,6 +46,9 @@ public class Nut : MonoBehaviour
     {
         isRotating = true;
         SetSpriteColor(standardColor);
+
+        GetComponent<AudioSource>().Play();
+
         for (int i = 0; i < 144; i++)
         {
             if (isNewTire)

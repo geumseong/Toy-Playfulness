@@ -26,6 +26,7 @@ public class PolicePrisoner : MonoBehaviour
     private IEnumerator PrisonerFoundDelay()
     {
         prisonerFound = true;
+        GetComponent<AudioSource>().Play();
         FindObjectOfType<PoliceMask>().ScaleMaskUp();
         exclamationMark[0].enabled = true;
         exclamationMark[1].enabled = true;

@@ -39,7 +39,6 @@ public class CarController : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        Debug.Log(Instance);
     }
 
     private void OnEnable()
@@ -50,7 +49,6 @@ public class CarController : MonoBehaviour
     private void OnDisable()
     {
         SceneManager.activeSceneChanged -= HideOutsideOfMainScene;
-        Debug.Log("Disabled");
     }
 
     private void HideOutsideOfMainScene(Scene scene1, Scene scene2)
