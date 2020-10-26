@@ -5,6 +5,12 @@ using UnityEngine.UI;
 
 public class Bow : MonoBehaviour
 {
+    public GameObject pullPhase1;
+    public GameObject pullPhase3;
+    public GameObject pullPhase2;
+
+    public GameObject scoreText;
+    
     public GameObject arrow;
     public int launchForce;
     float holdDownStartTime;
@@ -18,12 +24,20 @@ public class Bow : MonoBehaviour
     float maxPowerValue = 100;
     float currentPowerValue;
     float fillValue;
+
+    public int score;
     
     void Start()
     {
-        currentPowerValue = 0;
+        currentPowerValue = -1;
         increasingPower = true;
         updatingPower = false;
+
+        pullPhase1.SetActive(false);
+        pullPhase2.SetActive(false);
+        pullPhase3.SetActive(false);
+
+        powerBarCanvas.SetActive(false);
     }
 
     void Update()
@@ -45,6 +59,28 @@ public class Bow : MonoBehaviour
 
         if(Input.GetMouseButtonUp(0)){
             Debug.Log("Button Up");
+        }
+
+        if(currentPowerValue == -1) {
+            pullPhase1.SetActive(true);
+            pullPhase2.SetActive(false);
+            pullPhase3.SetActive(false);
+        }
+        else if(currentPowerValue > 50) {
+            pullPhase1.SetActive(false);
+            pullPhase2.SetActive(false);
+            pullPhase3.SetActive(true);
+        }
+        else {
+            pullPhase1.SetActive(false);
+            pullPhase2.SetActive(true);
+            pullPhase3.SetActive(false);
+        }
+
+        scoreText.GetComponent<Text>().text = "Targets : " + score + " / 3";
+
+        if(score == 3) {
+            FindObjectOfType<MiniGameWon>().Win();
         }
     }
 
@@ -77,7 +113,7 @@ public class Bow : MonoBehaviour
             {
                 Debug.Log("coroutine mouse up");
                 LaunchArrow(fillValue);
-                currentPowerValue = 0;
+                currentPowerValue = -1;
                 increasingPower = true;
                 updatingPower = false;
                 StartCoroutine(TurnOffPowerBar());
