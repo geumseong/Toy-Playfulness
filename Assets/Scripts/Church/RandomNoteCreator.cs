@@ -20,6 +20,7 @@ public class RandomNoteCreator : MonoBehaviour
 
     private IEnumerator SpawnNotes()
     {
+        yield return new WaitForSeconds(1f);
         for (int i = 0; i < 4; i++)
         {
             GameObject newNote = Instantiate(notePrefab, spawnLocation.position, Quaternion.identity);
@@ -43,6 +44,8 @@ public class RandomNoteCreator : MonoBehaviour
         {
             selectedNotes.Add(note);
         }
+
+        FindObjectOfType<Singer>().ChangeSingerSprite();
 
         if (selectedNotes.Count == 4)
         {

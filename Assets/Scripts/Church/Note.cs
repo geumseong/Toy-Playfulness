@@ -30,6 +30,9 @@ public class Note : MonoBehaviour
 
     public Sprite[] noteSprites;
     private SpriteRenderer spriteRenderer;
+    private AudioSource audioSource;
+
+    public AudioClip[] clips;
 
     private void Start()
     {
@@ -46,6 +49,7 @@ public class Note : MonoBehaviour
             noteAnimator.SetTrigger("Wiggle");
             spriteRenderer = GetComponent<SpriteRenderer>();
             SetNoteSprite();
+            PlayNoteSound();
             StartCoroutine(HideDelay(2.5f));
         }
         SetNoteColor();
@@ -53,7 +57,7 @@ public class Note : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (fixedNote)
+        if (fixedNote && FindObjectOfType<RandomNoteCreator>().selectedNotes.Count < 4)
         {
             FindObjectOfType<RandomNoteCreator>().AddSelectedNote(this);
             GameObject emptyNote = Instantiate(emptyNotePrefab, transform.position, Quaternion.identity);
@@ -88,6 +92,30 @@ public class Note : MonoBehaviour
         FindObjectOfType<Singer>().ChangeSingerSprite();
         yield return new WaitForSeconds(delay);
         gameObject.SetActive(false);
+    }
+
+    private void PlayNoteSound()
+    {
+        audioSource = GetComponent<AudioSource>();
+        switch (noteType)
+        {
+            case NoteType.Whole:
+                audioSource.clip = clips[0];
+                break;
+            case NoteType.Half:
+                audioSource.clip = clips[1];
+                break;
+            case NoteType.Quarter:
+                audioSource.clip = clips[2];
+                break;
+            case NoteType.Eigth:
+                audioSource.clip = clips[3];
+                break;
+            default:
+                break;
+        }
+
+        audioSource.Play();
     }
 
     private void SetRandomNoteType()

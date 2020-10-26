@@ -12,7 +12,7 @@ public class Singer : MonoBehaviour
     private void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
-        spriteRenderer.sprite = singerSprites[0];
+        spriteRenderer.sprite = singerSprites[1];
     }
 
     public void ChangeSingerSprite()

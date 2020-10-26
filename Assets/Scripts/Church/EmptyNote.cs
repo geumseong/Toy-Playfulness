@@ -16,6 +16,9 @@ public class EmptyNote : MonoBehaviour
     public Sprite[] noteSprites;
     private SpriteRenderer spriteRenderer;
 
+    public AudioClip[] clips;
+    private AudioSource audioSource;
+
     public void InitializeEmptyNote()
     {
         StartCoroutine(Initialize());
@@ -26,9 +29,34 @@ public class EmptyNote : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         SetNoteColor();
         SetNoteSprite();
+        PlayNoteSound();
         emptyNoteAnimator.SetTrigger("Wiggle");
         yield return new WaitForSeconds(2.5f);
         Destroy(gameObject);
+    }
+
+    private void PlayNoteSound()
+    {
+        audioSource = GetComponent<AudioSource>();
+        switch (noteType)
+        {
+            case Note.NoteType.Whole:
+                audioSource.clip = clips[0];
+                break;
+            case Note.NoteType.Half:
+                audioSource.clip = clips[1];
+                break;
+            case Note.NoteType.Quarter:
+                audioSource.clip = clips[2];
+                break;
+            case Note.NoteType.Eigth:
+                audioSource.clip = clips[3];
+                break;
+            default:
+                break;
+        }
+
+        audioSource.Play();
     }
 
     private void SetNoteColor()

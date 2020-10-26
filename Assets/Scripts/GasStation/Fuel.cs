@@ -40,7 +40,7 @@ public class Fuel : MonoBehaviour
             }
             else
             {
-                Debug.Log("Nahh");
+                GetComponent<AudioSource>().Play();
             }
         }
         else
