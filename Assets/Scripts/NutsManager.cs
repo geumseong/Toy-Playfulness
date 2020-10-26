@@ -10,6 +10,9 @@ public class NutsManager : MonoBehaviour
     public bool isNewTire;
     public List<Nut> nuts;
 
+    public SpriteRenderer tireSpriteRenderer;
+    public Sprite[] tires;
+
     private GameObject car;
 
     private void Start()
@@ -24,6 +27,7 @@ public class NutsManager : MonoBehaviour
 
         if (!isNewTire)
         {
+            tireSpriteRenderer.sprite = tires[0];
             foreach (Nut nut in GameObject.FindObjectsOfType<Nut>())
             {
                 nuts.Add(nut);
@@ -31,6 +35,7 @@ public class NutsManager : MonoBehaviour
         }
         else
         {
+            tireSpriteRenderer.sprite = tires[1];
             foreach (Nut nut in GameObject.FindObjectsOfType<Nut>())
             {
                 nut.isNewTire = this.isNewTire;
