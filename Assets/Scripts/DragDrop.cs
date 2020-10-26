@@ -51,6 +51,12 @@ public class DragDrop : MonoBehaviour
         if(colliding == true){
             this.transform.position = collisionPos;
             //this.transform.localPosition = new Vector2(resetPosition.x, resetPosition.y);
+            Debug.Log("Was Colliding when MouseUp");
+            if(gameObjectTag == "Envelop") {
+                Debug.Log("Destroy");
+                GameObject.Find("WinMinigame").GetComponent<MiniGameWon>().Win();
+                Destroy(gameObject);
+            }
         }
         else{
             this.transform.position = new Vector2(resetPosition.x, resetPosition.y);
