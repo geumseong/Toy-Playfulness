@@ -11,12 +11,13 @@ public class DragDrop : MonoBehaviour
     string gameObjectTag;
     bool colliding;
     Vector2 collisionPos;
+    int count;
 
     void Awake(){
         
     }
     void Start(){
-        resetPosition = this.transform.localPosition;
+        resetPosition = this.transform.position;
         gameObjectTag = gameObject.tag;
     }
 
@@ -27,7 +28,7 @@ public class DragDrop : MonoBehaviour
             mousePos = Input.mousePosition;
             mousePos = Camera.main.ScreenToWorldPoint(mousePos);
 
-            this.gameObject.transform.localPosition = new Vector2(mousePos.x - startPosX, mousePos.y - startPosY);
+            this.gameObject.transform.position = new Vector2(mousePos.x - startPosX, mousePos.y - startPosY);
         }
 
     }
@@ -38,8 +39,8 @@ public class DragDrop : MonoBehaviour
             mousePos = Input.mousePosition;
             mousePos = Camera.main.ScreenToWorldPoint(mousePos);
 
-            startPosX = mousePos.x - this.transform.localPosition.x;
-            startPosY = mousePos.y - this.transform.localPosition.y;
+            startPosX = mousePos.x - this.transform.position.x;
+            startPosY = mousePos.y - this.transform.position.y;
             
             moving = true;
         }
@@ -57,6 +58,9 @@ public class DragDrop : MonoBehaviour
                 GameObject.Find("WinMinigame").GetComponent<MiniGameWon>().Win();
                 Destroy(gameObject);
             }
+            if(GameObject.Find("WinStateManager").GetComponent<WinStateManager>().count == 4) {
+                GameObject.Find("WinMinigame").GetComponent<MiniGameWon>().Win();
+            }
         }
         else{
             this.transform.position = new Vector2(resetPosition.x, resetPosition.y);
@@ -66,7 +70,9 @@ public class DragDrop : MonoBehaviour
     void OnTriggerEnter2D(Collider2D collision) {
         if(gameObjectTag == collision.tag) {
             colliding = true;
-            collisionPos = new Vector2(collision.transform.localPosition.x, collision.transform.localPosition.y);
+            GameObject.Find("WinStateManager").GetComponent<WinStateManager>().count++;
+            Debug.Log(GameObject.Find("WinStateManager").GetComponent<WinStateManager>().count);
+            collisionPos = new Vector2(collision.transform.position.x, collision.transform.position.y);
             Debug.Log("newpositionSet");
         }
     }
@@ -74,6 +80,8 @@ public class DragDrop : MonoBehaviour
     void OnTriggerExit2D(Collider2D collision) {
         if(gameObjectTag == collision.tag) {
             colliding = false;
+            GameObject.Find("WinStateManager").GetComponent<WinStateManager>().count--;
+            Debug.Log(GameObject.Find("WinStateManager").GetComponent<WinStateManager>().count);
             collisionPos = new Vector2(resetPosition.x, resetPosition.y);
             Debug.Log("newpositionReset");
         }
