@@ -25,13 +25,14 @@ public class Arrow : MonoBehaviour
     void OnCollisionEnter2D(Collision2D collision) {
         if(collision.gameObject.tag == "target") {
             Debug.Log("target hit");
-            ParticleSystem e = Instantiate(ps);
-            e.transform.position = new Vector2(transform.position.x, transform.position.y);
-            e.Play();
+            //ParticleSystem e = Instantiate(ps);
+            //e.transform.position = new Vector2(transform.position.x, transform.position.y);
+            //e.Play();
 
-            Vector2 newTargetPos = new Vector2(collision.gameObject.transform.position.x, Random.Range(1.0f, 0.015f));
+            Vector2 newTargetPos = new Vector2(collision.gameObject.transform.position.x, Random.Range(-2.5f, 2.5f));
             GameObject newTarget = Instantiate(target);
             newTarget.transform.position = newTargetPos;
+            FindObjectOfType<Bow>().score++;
             Destroy(collision.gameObject);
             Destroy(gameObject);
         }

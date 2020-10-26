@@ -8,6 +8,8 @@ TagManager:
   - Map
   - Prisoner
   - Envelop
+  - target
+  - wall
   layers:
   - Default
   - TransparentFX
