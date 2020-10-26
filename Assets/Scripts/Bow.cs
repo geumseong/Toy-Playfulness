@@ -18,10 +18,10 @@ public class Bow : MonoBehaviour
 
     public Image powerBarMask;
     public GameObject powerBarCanvas;
-    public float powerChangeSpeed = 1f;
+    public float powerChangeSpeed = 0.0000005f;
     bool updatingPower;
     bool increasingPower;
-    float maxPowerValue = 100;
+    float maxPowerValue = 100f;
     float currentPowerValue;
     float fillValue;
 
@@ -38,6 +38,8 @@ public class Bow : MonoBehaviour
         pullPhase3.SetActive(false);
 
         powerBarCanvas.SetActive(false);
+
+        Application.targetFrameRate = 60;
     }
 
     void Update()
@@ -57,9 +59,9 @@ public class Bow : MonoBehaviour
             }
         }
 
-        if(Input.GetMouseButtonUp(0)){
-            Debug.Log("Button Up");
-        }
+        //if(Input.GetMouseButtonUp(0)){
+        //    Debug.Log("Button Up");
+        //}
 
         if(currentPowerValue == -1) {
             pullPhase1.SetActive(true);
@@ -107,7 +109,8 @@ public class Bow : MonoBehaviour
             
             fillValue = currentPowerValue / maxPowerValue;
             powerBarMask.fillAmount = fillValue;
-            yield return new WaitForSeconds(0.01f);
+            yield return null;
+            //yield return new WaitForSeconds(0.01f);
 
             if (Input.GetMouseButtonUp(0))
             {
