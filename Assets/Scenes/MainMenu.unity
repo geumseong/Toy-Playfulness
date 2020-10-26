@@ -345,7 +345,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 557659022}
+      - m_Target: {fileID: 1099966472}
         m_MethodName: LoadScene
         m_Mode: 3
         m_Arguments:
@@ -393,18 +393,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 399646083}
   m_CullTransparentMesh: 0
---- !u!114 &557659022 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6996714190904482873, guid: 9e755f739b0117e4eb06953fe785b846,
-    type: 3}
-  m_PrefabInstance: {fileID: 1465285942}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f119b4b284024e8458f96da49a6d3f21, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &636577666
 GameObject:
   m_ObjectHideFlags: 0
@@ -565,7 +553,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 557659022}
+      - m_Target: {fileID: 1099966472}
         m_MethodName: LoadScene
         m_Mode: 3
         m_Arguments:
@@ -708,6 +696,7 @@ GameObject:
   - component: {fileID: 1099966470}
   - component: {fileID: 1099966469}
   - component: {fileID: 1099966468}
+  - component: {fileID: 1099966472}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -798,6 +787,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1099966472
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1099966467}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b81193dc1bc03c44aa7d2f9788dd81e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1354567057
 GameObject:
   m_ObjectHideFlags: 0
@@ -1167,7 +1168,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 557659022}
+      - m_Target: {fileID: 1099966472}
         m_MethodName: Quit
         m_Mode: 1
         m_Arguments:

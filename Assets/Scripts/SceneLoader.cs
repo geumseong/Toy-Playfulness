@@ -13,14 +13,17 @@ public class SceneLoader : MonoBehaviour
 
     private void Start()
     {
-        if (_instance != null)
+        if (Instance != null)
         {
             Destroy(gameObject);
             Debug.Log("Duplicate Deleted:: SceneLoader - There can only be one. Ignore this if the same scene was loaded.");
         }
+        else
+        {
+            _instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
 
-        _instance = this;
-        DontDestroyOnLoad(gameObject);
     }
 
     public void LoadScene(int index)

@@ -11,22 +11,52 @@ public class UIManager : MonoBehaviour
     }
 
     public GameObject interactUI;
+    public GameObject pauseUI;
+
+    public bool paused;
 
     private void Start()
     {
         _instance = this;
+        paused = false;
         HideInteractable();
+        HidePauseUI();
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (paused)
+            {
+                HidePauseUI();
+            }
+            else
+            {
+                DisplayPauseUI();
+            }
+        }
     }
 
     public void DisplayInteractable()
     {
         interactUI.SetActive(true);
-        //Debug.Log("Display");
     }
 
     public void HideInteractable()
     {
         interactUI.SetActive(false);
-        //Debug.Log("Hide");
+    }
+
+    public void DisplayPauseUI()
+    {
+        pauseUI.SetActive(true);
+        paused = true;
+    }
+
+    public void HidePauseUI()
+    {
+        pauseUI.SetActive(false);
+        paused = false;
     }
 }

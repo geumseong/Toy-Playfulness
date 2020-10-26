@@ -5,6 +5,7 @@ using UnityEngine;
 public class MusicManager : MonoBehaviour
 {
     private static MusicManager _instance;
+    public static MusicManager Instance { get { return _instance; } }
     public AudioClip total;
     public AudioClip theme;
 
@@ -17,15 +18,18 @@ public class MusicManager : MonoBehaviour
 
     private void Start()
     {
-        if (_instance != null)
+        if (Instance != null)
         {
             Debug.Log("Destroying duplicate MusicManager");
             Destroy(gameObject);
         }
-        _instance = this;
-        DontDestroyOnLoad(gameObject);
-        audioSource = GetComponent<AudioSource>();
-        StartCoroutine(ThemeCoroutine());
+        else
+        {
+            _instance = this;
+            DontDestroyOnLoad(gameObject);
+            audioSource = GetComponent<AudioSource>();
+            StartCoroutine(ThemeCoroutine());
+        }
     }
 
     private IEnumerator ThemeCoroutine()
