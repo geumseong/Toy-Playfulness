@@ -208,6 +208,7 @@ MonoBehaviour:
   tires:
   - {fileID: 21300000, guid: 6f2d9cae18e8686498a02d1936a8710a, type: 3}
   - {fileID: 21300000, guid: 9d0f24cd87f87dd4a8391fcd8fb3639a, type: 3}
+  tireAnimator: {fileID: 1106796072328475683}
 --- !u!95 &1106796072328475683
 Animator:
   serializedVersion: 3

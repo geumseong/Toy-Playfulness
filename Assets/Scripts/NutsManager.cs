@@ -15,6 +15,8 @@ public class NutsManager : MonoBehaviour
 
     private GameObject car;
 
+    public Animator tireAnimator;
+
     private void Start()
     {
         car = GameObject.Find("Car");
@@ -57,11 +59,18 @@ public class NutsManager : MonoBehaviour
         {
             if (nuts.Count == 0)
             {
-                GameObject newTire = Instantiate(tirePrefab, Vector3.zero, Quaternion.identity);
-                newTire.GetComponent<NutsManager>().isNewTire = true;
-                Destroy(gameObject);
+                StartCoroutine(GetFixedTire());
             }
         }
+    }
+
+    private IEnumerator GetFixedTire()
+    {
+        tireAnimator.SetTrigger("Yeet");
+        yield return new WaitForSeconds(1f);
+        GameObject newTire = Instantiate(tirePrefab, Vector3.zero, Quaternion.identity);
+        newTire.GetComponent<NutsManager>().isNewTire = true;
+        Destroy(gameObject);
     }
 
     public void CantClickNuts()
