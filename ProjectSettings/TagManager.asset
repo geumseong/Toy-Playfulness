@@ -9,6 +9,7 @@ TagManager:
   - Prisoner
   - Envelop
   - target
+  - wall
   layers:
   - Default
   - TransparentFX
