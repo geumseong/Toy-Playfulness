@@ -16,7 +16,7 @@ public class SceneLoader : MonoBehaviour
         if (Instance != null)
         {
             Destroy(gameObject);
-            Debug.Log("Duplicate Deleted:: SceneLoader - There can only be one. Ignore this if the same scene was loaded.");
+            //Debug.Log("Duplicate Deleted:: SceneLoader - There can only be one. Ignore this if the same scene was loaded.");
         }
         else
         {

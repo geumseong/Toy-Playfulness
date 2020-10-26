@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CarController : MonoBehaviour
 {
@@ -20,24 +21,51 @@ public class CarController : MonoBehaviour
     float direction;
 
     private Rigidbody2D rb;
+    private bool canSteer;
 
-    void Start()
+    void Awake()
     {
-        if (Instance != null)
+        if (!Instance)
         {
-            Debug.Log("CarController:: Duplicate Deleted");
+            _instance = this;
+            DontDestroyOnLoad(gameObject);
+
+
+            rb = gameObject.GetComponent<Rigidbody2D>();
+
+            canSteer = true;
+        }
+        else
+        {
             Destroy(gameObject);
         }
-        _instance = this;
-        DontDestroyOnLoad(gameObject);
-
-        spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
-        rb = gameObject.GetComponent<Rigidbody2D>();
+        Debug.Log(Instance);
     }
 
-    private void HideOutsideOfMainScene()
+    private void OnEnable()
     {
+        SceneManager.activeSceneChanged += HideOutsideOfMainScene;
+    }
 
+    private void OnDisable()
+    {
+        SceneManager.activeSceneChanged -= HideOutsideOfMainScene;
+        Debug.Log("Disabled");
+    }
+
+    private void HideOutsideOfMainScene(Scene scene1, Scene scene2)
+    {
+        spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
+        if (scene2.name != "Main")
+        {
+            spriteRenderer.enabled = false;
+            canSteer = false;
+        }
+        else
+        {
+            spriteRenderer.enabled = true;
+            canSteer = true;
+        }
     }
 
     private void Update()
@@ -53,14 +81,17 @@ public class CarController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        steeringAmount = -Input.GetAxis("Horizontal");
-        moveSpeed = Input.GetAxis("Vertical") * accelerationPower;
-        direction = Mathf.Sign(Vector2.Dot(rb.velocity, rb.GetRelativeVector(Vector2.up)));
-        rb.rotation += steeringAmount * steeringPower * rb.velocity.magnitude * direction;
+        if (canSteer)
+        {
+            steeringAmount = -Input.GetAxis("Horizontal");
+            moveSpeed = Input.GetAxis("Vertical") * accelerationPower;
+            direction = Mathf.Sign(Vector2.Dot(rb.velocity, rb.GetRelativeVector(Vector2.up)));
+            rb.rotation += steeringAmount * steeringPower * rb.velocity.magnitude * direction;
 
-        rb.AddRelativeForce(Vector2.up * moveSpeed);
+            rb.AddRelativeForce(Vector2.up * moveSpeed);
 
-        rb.AddRelativeForce(-Vector2.right * rb.velocity.magnitude * steeringAmount / 2);
+            rb.AddRelativeForce(-Vector2.right * rb.velocity.magnitude * steeringAmount / 2);
+        }
     }
 
     public void SetOnTrigger(bool isInInteractableRange, MiniGame currentMinigame)
@@ -71,6 +102,7 @@ public class CarController : MonoBehaviour
 
     public void SetSprite(Sprite sprite)
     {
+        spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
         spriteRenderer.sprite = sprite;
     }
 }
