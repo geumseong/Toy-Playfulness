@@ -13,6 +13,9 @@ public class EmptyNote : MonoBehaviour
 
     public Animator emptyNoteAnimator;
 
+    public Sprite[] noteSprites;
+    private SpriteRenderer spriteRenderer;
+
     public void InitializeEmptyNote()
     {
         StartCoroutine(Initialize());
@@ -20,7 +23,9 @@ public class EmptyNote : MonoBehaviour
 
     private IEnumerator Initialize()
     {
+        spriteRenderer = GetComponent<SpriteRenderer>();
         SetNoteColor();
+        SetNoteSprite();
         emptyNoteAnimator.SetTrigger("Wiggle");
         yield return new WaitForSeconds(2.5f);
         Destroy(gameObject);
@@ -45,5 +50,27 @@ public class EmptyNote : MonoBehaviour
             default:
                 break;
         }
+    }
+
+    private void SetNoteSprite()
+    {
+        switch (noteType)
+        {
+            case Note.NoteType.Whole:
+                spriteRenderer.sprite = noteSprites[0];
+                break;
+            case Note.NoteType.Half:
+                spriteRenderer.sprite = noteSprites[1];
+                break;
+            case Note.NoteType.Quarter:
+                spriteRenderer.sprite = noteSprites[2];
+                break;
+            case Note.NoteType.Eigth:
+                spriteRenderer.sprite = noteSprites[3];
+                break;
+            default:
+                break;
+        }
+        transform.localScale = Vector2.one / 2f;
     }
 }

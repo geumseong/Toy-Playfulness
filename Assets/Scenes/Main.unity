@@ -482,7 +482,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c184687a75d1ef448d681bbcf21beab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 1402743576}
   offset: {x: 0, y: 0, z: -10}
   lerpSpeed: 7
 --- !u!20 &519420031

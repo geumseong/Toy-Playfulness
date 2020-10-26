@@ -4,18 +4,25 @@ using UnityEngine;
 
 public class CameraFollow : MonoBehaviour
 {
-    public Transform target;
+    private Transform target;
     public Vector3 offset;
     public float lerpSpeed;
 
     private void Start()
     {
-        transform.position = target.position;
-        Camera.main.orthographicSize -= Input.mouseScrollDelta.y;
+        StartCoroutine(LateStart());
     }
 
     private void FixedUpdate()
     {
         transform.position = Vector3.Lerp(transform.position, target.position + offset, lerpSpeed * Time.deltaTime);
+    }
+
+    private IEnumerator LateStart()
+    {
+        yield return null;
+        target = CarController.Instance.transform;
+        transform.position = target.position;
+        Camera.main.orthographicSize -= Input.mouseScrollDelta.y;
     }
 }

@@ -70,7 +70,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 75d9a1e7ec48b4244831cf83ea4e5060, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -104,6 +104,11 @@ MonoBehaviour:
   halfColor: {r: 0.8, g: 0.76408714, b: 0.2, a: 1}
   quarterColor: {r: 0.36399442, g: 0.8, b: 0.2, a: 1}
   eigthColor: {r: 0.2, g: 0.652427, b: 0.8, a: 1}
+  noteSprites:
+  - {fileID: 21300000, guid: 9bb46a7fac814f14cb104b4acd62fcab, type: 3}
+  - {fileID: 21300000, guid: cd44788926128ba439f2b7f542736354, type: 3}
+  - {fileID: 21300000, guid: 962c25def4033b049aa0e25c45702c57, type: 3}
+  - {fileID: 21300000, guid: 57860f67386fb224f9fcd9db6660034a, type: 3}
 --- !u!1 &2274847149025173321
 GameObject:
   m_ObjectHideFlags: 0

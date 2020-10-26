@@ -151,3 +151,8 @@ MonoBehaviour:
   quarterColor: {r: 0.36399442, g: 0.8, b: 0.2, a: 1}
   eigthColor: {r: 0.2, g: 0.652427, b: 0.8, a: 1}
   emptyNoteAnimator: {fileID: 6786312011599119716}
+  noteSprites:
+  - {fileID: 21300000, guid: 9bb46a7fac814f14cb104b4acd62fcab, type: 3}
+  - {fileID: 21300000, guid: cd44788926128ba439f2b7f542736354, type: 3}
+  - {fileID: 21300000, guid: 962c25def4033b049aa0e25c45702c57, type: 3}
+  - {fileID: 21300000, guid: 57860f67386fb224f9fcd9db6660034a, type: 3}

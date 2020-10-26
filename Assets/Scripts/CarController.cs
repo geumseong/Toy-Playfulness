@@ -23,9 +23,21 @@ public class CarController : MonoBehaviour
 
     void Start()
     {
+        if (Instance != null)
+        {
+            Debug.Log("CarController:: Duplicate Deleted");
+            Destroy(gameObject);
+        }
         _instance = this;
+        DontDestroyOnLoad(gameObject);
+
         spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
         rb = gameObject.GetComponent<Rigidbody2D>();
+    }
+
+    private void HideOutsideOfMainScene()
+    {
+
     }
 
     private void Update()

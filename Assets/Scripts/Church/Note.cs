@@ -28,6 +28,9 @@ public class Note : MonoBehaviour
     public Color quarterColor;
     public Color eigthColor;
 
+    public Sprite[] noteSprites;
+    private SpriteRenderer spriteRenderer;
+
     private void Start()
     {
         if (fixedNote)
@@ -41,6 +44,8 @@ public class Note : MonoBehaviour
             // change note sprite;
             transform.localScale = new Vector2(50, 50);
             noteAnimator.SetTrigger("Wiggle");
+            spriteRenderer = GetComponent<SpriteRenderer>();
+            SetNoteSprite();
             StartCoroutine(HideDelay(2.5f));
         }
         SetNoteColor();
@@ -80,6 +85,7 @@ public class Note : MonoBehaviour
 
     private IEnumerator HideDelay(float delay)
     {
+        FindObjectOfType<Singer>().ChangeSingerSprite();
         yield return new WaitForSeconds(delay);
         gameObject.SetActive(false);
     }
@@ -106,6 +112,28 @@ public class Note : MonoBehaviour
             default:
                 break;
         }
+    }
+
+    private void SetNoteSprite()
+    {
+        switch (noteType)
+        {
+            case NoteType.Whole:
+                spriteRenderer.sprite = noteSprites[0];
+                break;
+            case NoteType.Half:
+                spriteRenderer.sprite = noteSprites[1];
+                break;
+            case NoteType.Quarter:
+                spriteRenderer.sprite = noteSprites[2];
+                break;
+            case NoteType.Eigth:
+                spriteRenderer.sprite = noteSprites[3];
+                break;
+            default:
+                break;
+        }
+        transform.localScale = Vector2.one / 2f;
     }
 
     private void SetNoteScale()

@@ -25,6 +25,7 @@ public class RandomNoteCreator : MonoBehaviour
             GameObject newNote = Instantiate(notePrefab, spawnLocation.position, Quaternion.identity);
             newNote.GetComponentInChildren<Note>().fixedNote = false;
             randomNotes.Add(newNote.GetComponentInChildren<Note>());
+            FindObjectOfType<Singer>().ChangeSingerSprite();
             yield return new WaitForSeconds(2f);
         }
 
@@ -53,7 +54,7 @@ public class RandomNoteCreator : MonoBehaviour
             else
             {
                 yield return new WaitForSeconds(3f);
-                FindObjectOfType<MiniGameWon>().Win();
+                FindObjectOfType<MiniGameWon>().Loose();
             }
         }
     }
