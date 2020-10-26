@@ -4,24 +4,85 @@ using UnityEngine;
 
 public class NutsManager : MonoBehaviour
 {
+    public GameObject tirePrefab;
+    public GameObject nutPrefab;
+    public Transform[] spawnPositions;
+    public bool isNewTire;
+    public List<Nut> nuts;
 
-    [HideInInspector] public List<Nut> nuts;
+    public SpriteRenderer tireSpriteRenderer;
+    public Sprite[] tires;
+
+    private GameObject car;
 
     private void Start()
     {
-        nuts = new List<Nut>();
-        foreach (Nut nut in GameObject.FindObjectsOfType<Nut>())
+        car = GameObject.Find("Car");
+        for (int i = 0; i < spawnPositions.Length; i++)
         {
-            nuts.Add(nut);
+            Instantiate(nutPrefab, spawnPositions[i].position, Quaternion.identity, spawnPositions[i]);
+        }
+
+        nuts = new List<Nut>();
+
+        if (!isNewTire)
+        {
+            tireSpriteRenderer.sprite = tires[0];
+            foreach (Nut nut in GameObject.FindObjectsOfType<Nut>())
+            {
+                nuts.Add(nut);
+            }
+        }
+        else
+        {
+            tireSpriteRenderer.sprite = tires[1];
+            foreach (Nut nut in GameObject.FindObjectsOfType<Nut>())
+            {
+                nut.isNewTire = this.isNewTire;
+            }
         }
     }
 
     public void NutCheck()
     {
-        if (nuts.Count == 0)
+        if (isNewTire)
         {
-            Debug.Log("Initiate next sequence");
-            // Initiate next sequence
+            if (nuts.Count == 6)
+            {
+                car.GetComponent<Animator>().SetTrigger("CarDriveOff");
+                gameObject.GetComponent<Animator>().SetTrigger("CarDriveOff");
+            }
         }
+        else
+        {
+            if (nuts.Count == 0)
+            {
+                GameObject newTire = Instantiate(tirePrefab, Vector3.zero, Quaternion.identity);
+                newTire.GetComponent<NutsManager>().isNewTire = true;
+                Destroy(gameObject);
+            }
+        }
+    }
+
+    public void CantClickNuts()
+    {
+        foreach (Nut nut in nuts)
+        {
+            nut.isRotating = true;
+            nut.SetSpriteColor(nut.standardColor);
+        }
+    }
+
+    public void CanClickNuts()
+    {
+        foreach (Nut nut in nuts)
+        {
+            nut.isRotating = false;
+        }
+    }
+
+    public void WinScene()
+    {
+        SceneLoader.Instance.LoadScene(2);
     }
 }

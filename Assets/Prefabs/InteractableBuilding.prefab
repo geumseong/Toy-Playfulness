@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2871440837466210636}
   m_Layer: 0
   m_Name: InteractableBuilding
-  m_TagString: Untagged
+  m_TagString: Building
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -86,10 +86,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   changeScene: 1
   sceneIndex: 7
-  changesSprite: 0
-  changeToSprite: {fileID: 0}
-  callsMethod: 0
-  methodValue: 0
+  runsUnityEvent: 0
+  runUnityEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &7087558306693123646
 GameObject:
   m_ObjectHideFlags: 0
@@ -103,7 +103,7 @@ GameObject:
   - component: {fileID: 7087558306693123616}
   m_Layer: 0
   m_Name: Collider
-  m_TagString: Untagged
+  m_TagString: Building
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
