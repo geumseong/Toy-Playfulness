@@ -1445,7 +1445,6 @@ MonoBehaviour:
   carAnimator: {fileID: 653142358}
   tank: {fileID: 2059341133}
   tint: {r: 0.9602391, g: 1, b: 0.25, a: 1}
-  fillValue: 0.005
   wasFull: 0
   wasMoved: 0
 --- !u!61 &2059341136
