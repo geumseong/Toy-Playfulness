@@ -58,7 +58,12 @@ public class DragDrop : MonoBehaviour
                 GameObject.Find("WinMinigame").GetComponent<MiniGameWon>().Win();
                 Destroy(gameObject);
             }
-            if(GameObject.Find("WinStateManager").GetComponent<WinStateManager>().count == 4) {
+            if(GameObject.Find("WinStateManager") != null){
+                if(GameObject.Find("WinStateManager").GetComponent<WinStateManager>().count == 4) {
+                    GameObject.Find("WinMinigame").GetComponent<MiniGameWon>().Win();
+                }
+            }
+            if(gameObjectTag == "leg") {
                 GameObject.Find("WinMinigame").GetComponent<MiniGameWon>().Win();
             }
         }
@@ -70,8 +75,10 @@ public class DragDrop : MonoBehaviour
     void OnTriggerEnter2D(Collider2D collision) {
         if(gameObjectTag == collision.tag) {
             colliding = true;
-            GameObject.Find("WinStateManager").GetComponent<WinStateManager>().count++;
-            Debug.Log(GameObject.Find("WinStateManager").GetComponent<WinStateManager>().count);
+            if(GameObject.Find("WinStateManager") != null){
+                GameObject.Find("WinStateManager").GetComponent<WinStateManager>().count++;
+                Debug.Log(GameObject.Find("WinStateManager").GetComponent<WinStateManager>().count);
+            }
             collisionPos = new Vector2(collision.transform.position.x, collision.transform.position.y);
             Debug.Log("newpositionSet");
         }
@@ -80,8 +87,10 @@ public class DragDrop : MonoBehaviour
     void OnTriggerExit2D(Collider2D collision) {
         if(gameObjectTag == collision.tag) {
             colliding = false;
-            GameObject.Find("WinStateManager").GetComponent<WinStateManager>().count--;
-            Debug.Log(GameObject.Find("WinStateManager").GetComponent<WinStateManager>().count);
+            if(GameObject.Find("WinStateManager") != null){
+                GameObject.Find("WinStateManager").GetComponent<WinStateManager>().count--;
+                Debug.Log(GameObject.Find("WinStateManager").GetComponent<WinStateManager>().count);
+            }
             collisionPos = new Vector2(resetPosition.x, resetPosition.y);
             Debug.Log("newpositionReset");
         }
